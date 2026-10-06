@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natsumi | 自由行與團體旅遊專業領隊 & 行程規劃師</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            DEFAULT: '#FAF8F5',
+                            light: '#FDFCF0',
+                            card: '#FFFFFF',
+                            border: '#E8E2D8'
+                        },
+                        amber: {
+                            warm: '#C68B59',
+                            hover: '#B07848',
+                            light: '#F7EFE5'
+                        },
+                        slate: {
+                            dark: '#2B2D42',
+                            muted: '#5A6075'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Baskerville', 'Georgia', 'LiSong Pro', '儷宋', 'serif'],
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #FAF8F5;
+            color: #2B2D42;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .serif-title {
+            font-family: 'Baskerville', 'Georgia', 'LiSong Pro', '儷宋 Pro', serif;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-warm selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-warm text-white flex items-center justify-center font-serif text-xl font-bold">N</div>
+                    <div>
+                        <span class="text-xl font-serif font-bold text-slate-dark tracking-wide block">Natsumi</span>
+                        <span class="text-xs text-slate-muted block tracking-wider">資深領隊 & 行程規劃師</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-medium text-sm text-slate-dark">
+                    <a href="#about" class="hover:text-amber-warm transition">關於我</a>
+                    <a href="#services" class="hover:text-amber-warm transition">諮詢服務</a>
+                    <a href="#estimator" class="hover:text-amber-warm transition">服務試算</a>
+                    <a href="#cases" class="hover:text-amber-warm transition">服務案例</a>
+                    <a href="#blog" class="hover:text-amber-warm transition">專業文章</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-amber-warm text-white hover:bg-amber-hover transition shadow-sm">預約諮詢</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden p-2 text-slate-dark hover:text-amber-warm">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-light border-b border-cream-border px-6 py-4 space-y-4">
+            <a href="#about" class="block text-slate-dark hover:text-amber-warm font-medium">關於我</a>
+            <a href="#services" class="block text-slate-dark hover:text-amber-warm font-medium">諮詢服務</a>
+            <a href="#estimator" class="block text-slate-dark hover:text-amber-warm font-medium">服務試算</a>
+            <a href="#cases" class="block text-slate-dark hover:text-amber-warm font-medium">服務案例</a>
+            <a href="#blog" class="block text-slate-dark hover:text-amber-warm font-medium">專業文章</a>
+            <a href="#contact" class="block w-full text-center px-5 py-2.5 rounded-full bg-amber-warm text-white font-medium">預約諮詢</a>
+        </div>
+    </nav>
+
+    <!-- 1.0 Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-light text-amber-warm text-xs font-semibold tracking-wider uppercase">
+                    <i data-lucide="compass" class="w-4 h-4"></i>
+                    <span>自在遊旅行社 18年深耕領隊</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-dark leading-tight">
+                    讓每一趟旅程，<br/>
+                    都充滿<span class="text-amber-warm italic">自在與安心</span>的記憶。
+                </h1>
+                <p class="text-slate-muted text-base sm:text-lg leading-relaxed max-w-2xl">
+                    一趟真正令人難忘的旅行，不只是抵達目的地，更來自每一個細節都被妥善理解、預先規劃與溫暖照顧。具備國家領隊證照、日檢 N2 與多益 935 分，為您打造量身訂製的質感旅程。
+                </p>
+
+                <!-- Key Credentials Badges -->
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-cream-border">
+                    <div class="bg-cream-card p-4 rounded-xl border border-cream-border text-center shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-serif font-bold text-amber-warm">18+</div>
+                        <div class="text-xs text-slate-muted mt-1">年旅遊產業經驗</div>
+                    </div>
+                    <div class="bg-cream-card p-4 rounded-xl border border-cream-border text-center shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-serif font-bold text-amber-warm">JLPT N2</div>
+                        <div class="text-xs text-slate-muted mt-1">日本語能力認證</div>
+                    </div>
+                    <div class="bg-cream-card p-4 rounded-xl border border-cream-border text-center shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-serif font-bold text-amber-warm">935分</div>
+                        <div class="text-xs text-slate-muted mt-1">TOEIC 多益金證</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-amber-warm text-white font-medium hover:bg-amber-hover transition shadow-md group">
+                        預約行程諮詢
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <a href="#services" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-cream-card border border-cream-border text-slate-dark font-medium hover:border-amber-warm transition">
+                        瀏覽服務項目
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-5">
+                <div class="relative mx-auto max-w-md md:max-w-none">
+                    <div class="w-full h-[450px] sm:h-[520px] rounded-2xl bg-gradient-to-br from-amber-warm/20 to-slate-dark/10 p-4 border border-cream-border relative overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800" alt="Natsumi 旅行現場" class="w-full h-full object-cover rounded-xl"/>
+                        <div class="absolute bottom-8 left-8 right-8 bg-cream-light/95 backdrop-blur-md p-5 rounded-xl border border-cream-border shadow-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-amber-light flex items-center justify-center text-amber-warm">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-dark">國家認證領隊</p>
+                                    <p class="text-xs text-slate-muted">熟諳關東、關西、北海道、九州與歐亞跨國路線</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.0 About Me Section -->
+    <section id="about" class="py-20 bg-cream-light border-y border-cream-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">About Natsumi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-dark mt-2">18年深耕，跨文化溝通與精緻照顧</h2>
+                <p class="text-slate-muted mt-4">從背起背包自助探索世界開始，到成為陪伴無數旅客邁向理想旅程的專業領隊。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-slate-muted leading-relaxed">
+                    <p class="text-lg text-slate-dark font-medium">
+                        我是 Natsumi，自在遊旅行社資深領隊。相信一趟真正令人安心且難忘的旅行，不只是抵達目的地，更來自每一個細節都被妥善理解、預先規劃與溫暖照顧。
+                    </p>
+                    <p>
+                        曾獨自走訪日本、香港、英國、法國、德國、比利時、義大利、捷克與西班牙等地。這些親身經歷讓我熟悉不同國家的交通邏輯、城市節奏與旅人需求，培養出在陌生環境中快速判斷、靈活應變的能力。
+                    </p>
+                    <p>
+                        成為專業領隊後，我持續帶領旅客深入日本關東、關西、北海道、九州、名古屋等地，將行程安排轉化為兼具效率、品質與人情味的旅行體驗。同時我也協助商業與教育界客戶規劃多國自助旅遊，為每次出發創造深刻價值。
+                    </p>
+
+                    <!-- Language & Skill Pills -->
+                    <div class="pt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-cream border border-cream-border text-xs text-slate-dark font-medium">日檢 JLPT N2</span>
+                        <span class="px-3 py-1 rounded-full bg-cream border border-cream-border text-xs text-slate-dark font-medium">多益 TOEIC 935分</span>
+                        <span class="px-3 py-1 rounded-full bg-cream border border-cream-border text-xs text-slate-dark font-medium">台灣國家領隊執照</span>
+                        <span class="px-3 py-1 rounded-full bg-cream border border-cream-border text-xs text-slate-dark font-medium">跨國交通邏輯整合</span>
+                        <span class="px-3 py-1 rounded-full bg-cream border border-cream-border text-xs text-slate-dark font-medium">商業/學術考查團</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Footprint Tabs -->
+                <div class="bg-cream-card p-6 sm:p-8 rounded-2xl border border-cream-border shadow-sm space-y-6">
+                    <h3 class="text-xl font-serif font-bold text-slate-dark flex items-center">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-amber-warm mr-2"></i>
+                        足跡與專業版圖
+                    </h3>
+
+                    <div class="flex border-b border-cream-border space-x-4">
+                        <button id="tab-japan" onclick="switchTab('japan')" class="pb-2 text-sm font-medium border-b-2 border-amber-warm text-amber-warm transition">日本深度帶團</button>
+                        <button id="tab-europe" onclick="switchTab('europe')" class="pb-2 text-sm font-medium border-b-2 border-transparent text-slate-muted hover:text-slate-dark transition">歐亞自助與代操</button>
+                    </div>
+
+                    <div id="content-japan" class="space-y-4">
+                        <p class="text-xs text-slate-muted">帶領無數團體深入日本在地私房景點與舒適節奏：</p>
+                        <div class="grid grid-cols-2 gap-3 text-sm font-medium text-slate-dark">
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 關東區域 (東京/鐮倉)</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 關西區域 (京都/大阪)</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 北海道深度遊</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 九州全區 (阿蘇/長崎)</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 名古屋與中部</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇯🇵 樂齡與三代同堂</div>
+                        </div>
+                    </div>
+
+                    <div id="content-europe" class="hidden space-y-4">
+                        <p class="text-xs text-slate-muted">熟悉歐亞城市節奏、跨國交通與預算控制：</p>
+                        <div class="grid grid-cols-2 gap-3 text-sm font-medium text-slate-dark">
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇬🇧 英國 London</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇫🇷 法國 Paris</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇩🇪 德國 Germany</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇪🇸 西班牙 Spain</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇮🇹 義大利 Italy</div>
+                            <div class="p-3 bg-cream rounded-lg border border-cream-border flex items-center">🇨🇿 捷克 Czechia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.0 & 4.0 Services Section -->
+    <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">Services</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-dark mt-2">核心諮詢與行程服務</h2>
+            <p class="text-slate-muted mt-4">不只是把行程排好，而是讓您在出發前就能清楚掌握方向，旅途中保有自在餘裕。</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- 3.0 Group Tour Service -->
+            <div class="bg-cream-card rounded-2xl p-8 border border-cream-border shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-light text-amber-warm flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-bold text-amber-warm uppercase tracking-wider">Group Tours</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-dark mt-1 mb-4">團體旅遊諮詢</h3>
+                    <p class="text-slate-muted leading-relaxed text-sm mb-6">
+                        無論是凝聚團隊的企業員工旅遊、三代同堂家族旅行、蜜月之旅或樂齡旅遊，依據人數、預算與需求，提供最符合步調的目的地與行程建議。
+                    </p>
+
+                    <!-- Features -->
+                    <ul class="space-y-3 text-sm text-slate-dark mb-8">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 企業員工旅遊 & 獎勵旅遊規劃</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 三代同堂 & 樂齡慢遊步調設計</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 航班、優質住宿與專屬交通銜接</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 憑藉18年實務預先掌握突發應變</li>
+                    </ul>
+                </div>
+
+                <a href="#contact" class="w-full text-center py-3 rounded-xl bg-amber-warm text-white font-medium hover:bg-amber-hover transition">
+                    諮詢團體旅遊
+                </a>
+            </div>
+
+            <!-- 4.0 FIT Customized Service -->
+            <div class="bg-cream-card rounded-2xl p-8 border border-cream-border shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-light text-amber-warm flex items-center justify-center mb-6">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-bold text-amber-warm uppercase tracking-wider">Custom FIT Travel</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-dark mt-1 mb-4">自助旅遊諮詢與代操</h3>
+                    <p class="text-slate-muted leading-relaxed text-sm mb-6">
+                        保有自由探索的彈性，同時降低查詢與安排的時間成本。一對一客製化代操服務，將繁瑣資訊整理成安心、有方向的計畫書。
+                    </p>
+
+                    <!-- Features -->
+                    <ul class="space-y-3 text-sm text-slate-dark mb-8">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 一對一行程訪談與客製化路線規劃</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 機票購置建議、住宿預訂與交通票券</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 交付完整易執行的「專屬旅行計畫書」</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-amber-warm mr-2"></i> 旅途中即時線上支援與解答</li>
+                    </ul>
+                </div>
+
+                <a href="#contact" class="w-full text-center py-3 rounded-xl bg-cream border border-amber-warm text-amber-warm font-medium hover:bg-amber-warm hover:text-white transition">
+                    預約自由行代操
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Estimator Interactive Tool -->
+    <section id="estimator" class="py-16 bg-cream-light border-y border-cream-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cream-card rounded-2xl p-6 sm:p-10 border border-cream-border shadow-sm space-y-8">
+                <div class="text-center">
+                    <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">Interactive Estimator</span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-dark mt-1">行程規劃快速需求試算</h2>
+                    <p class="text-slate-muted text-sm mt-2">選擇您的預計行程條件，快速取得試算建議與規劃方向：</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-dark mb-2">目的地區域</label>
+                        <select id="est-region" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm">
+                            <option value="japan">日本 (關東/關西/九州/北海道)</option>
+                            <option value="europe">歐洲 (英/法/德/西/意/捷)</option>
+                            <option value="other">其他區域諮詢</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-dark mb-2">預計天數</label>
+                        <select id="est-days" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm">
+                            <option value="5">5 - 7 天</option>
+                            <option value="9">8 - 10 天</option>
+                            <option value="12">11 天以上</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-dark mb-2">服務需求類型</label>
+                        <select id="est-type" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm">
+                            <option value="group">團體旅遊諮詢 / 帶團</option>
+                            <option value="fit">自助旅遊一站式代操</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-cream rounded-xl border border-cream-border text-center space-y-2">
+                    <p class="text-xs text-slate-muted">預估建議與服務摘要：</p>
+                    <p id="est-result" class="text-lg font-serif font-bold text-amber-warm">
+                        適合：日本 5-7 天客製化自由行代操（含交通邏輯、住宿推薦與路綫手冊）
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 rounded-full bg-amber-warm text-white font-medium hover:bg-amber-hover transition">
+                        帶入此需求預約諮詢
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.0 Portfolio / Cases Section -->
+    <section id="cases" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">Portfolio</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-dark mt-2">精選服務案例展示</h2>
+            <p class="text-slate-muted mt-4">深受商業考察、學術單位與家庭旅客信任的精緻規劃。</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Case Item 1 -->
+            <div class="bg-cream-card rounded-2xl overflow-hidden border border-cream-border shadow-sm hover:shadow-md transition">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=600" alt="商業考察" class="w-full h-full object-cover hover:scale-105 transition duration-500"/>
+                    <span class="absolute top-4 left-4 bg-slate-dark/80 backdrop-blur-md text-white text-xs px-3 py-1 rounded-full">商業考察團</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-dark">日本東京企業深度考察 6日</h3>
+                    <p class="text-xs text-slate-muted leading-relaxed">協助企業高階主管規劃東京商務考察，結合嚴謹交通時間銜接與米其林餐食預訂，獲得客戶高度肯定。</p>
+                </div>
+            </div>
+
+            <!-- Case Item 2 -->
+            <div class="bg-cream-card rounded-2xl overflow-hidden border border-cream-border shadow-sm hover:shadow-md transition">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=600" alt="學術交流" class="w-full h-full object-cover hover:scale-105 transition duration-500"/>
+                    <span class="absolute top-4 left-4 bg-slate-dark/80 backdrop-blur-md text-white text-xs px-3 py-1 rounded-full">教育學術團</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-dark">英國與法國文化學術參訪 10日</h3>
+                    <p class="text-xs text-slate-muted leading-relaxed">針對教育界機構安排跨國火車銜接、博物館導覽預約與安全行程步調，兼具知識深度與流暢體驗。</p>
+                </div>
+            </div>
+
+            <!-- Case Item 3 -->
+            <div class="bg-cream-card rounded-2xl overflow-hidden border border-cream-border shadow-sm hover:shadow-md transition">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=600" alt="家族自由行" class="w-full h-full object-cover hover:scale-105 transition duration-500"/>
+                    <span class="absolute top-4 left-4 bg-slate-dark/80 backdrop-blur-md text-white text-xs px-3 py-1 rounded-full">三代同堂自由行</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-dark">九州熊本與長崎定點自駕 8日</h3>
+                    <p class="text-xs text-slate-muted leading-relaxed">專為三代同堂家族量身打造公寓式飯店、包車自駕動線與景點節奏，預先排解長輩與孩童的需求。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6.0 Technical Blog Section -->
+    <section id="blog" class="py-20 bg-cream-light border-y border-cream-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">Blog & Insights</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-dark mt-2">旅遊技術與實務觀點</h2>
+                <p class="text-slate-muted mt-4">分享 18 年來累積的跨國交通邏輯、應變技巧與旅遊知識。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-cream-card p-6 rounded-2xl border border-cream-border shadow-sm space-y-4 hover:border-amber-warm transition">
+                    <div class="flex justify-between items-center text-xs text-slate-muted">
+                        <span class="text-amber-warm font-medium">日本交通攻略</span>
+                        <span>2026.03.15</span>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-slate-dark hover:text-amber-warm transition cursor-pointer">
+                        關西與關東鐵路周遊券選擇心法：如何避開人潮與轉乘陷阱？
+                    </h3>
+                    <p class="text-xs text-slate-muted leading-relaxed line-clamp-3">
+                        分析新幹線與JR Pass改版後的 CP 值計算邏輯，並分享領隊帶團時最常用到的班次預約技巧與行李規定。
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-xs font-bold text-amber-warm hover:text-amber-hover">
+                        閱讀全文 <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
+                    </a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-cream-card p-6 rounded-2xl border border-cream-border shadow-sm space-y-4 hover:border-amber-warm transition">
+                    <div class="flex justify-between items-center text-xs text-slate-muted">
+                        <span class="text-amber-warm font-medium">歐洲自由行實戰</span>
+                        <span>2026.02.28</span>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-slate-dark hover:text-amber-warm transition cursor-pointer">
+                        第一次去英法捷斯：跨國火車與城市節奏如何順暢銜接？
+                    </h3>
+                    <p class="text-xs text-slate-muted leading-relaxed line-clamp-3">
+                        整理歐洲主要火車站的行李安檢、月台變動應變邏輯，以及防範治安風險的實務操作經驗。
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-xs font-bold text-amber-warm hover:text-amber-hover">
+                        閱讀全文 <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
+                    </a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-cream-card p-6 rounded-2xl border border-cream-border shadow-sm space-y-4 hover:border-amber-warm transition">
+                    <div class="flex justify-between items-center text-xs text-slate-muted">
+                        <span class="text-amber-warm font-medium">領隊手記</span>
+                        <span>2026.01.10</span>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-slate-dark hover:text-amber-warm transition cursor-pointer">
+                        樂齡與家族旅遊的關鍵：預先規劃不等於「塞滿行程」
+                    </h3>
+                    <p class="text-xs text-slate-muted leading-relaxed line-clamp-3">
+                        帶團18年深刻體驗：真正的舒適來自留白與節奏控制。分享如何為三代同堂設計有溫度的旅行計畫。
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-xs font-bold text-amber-warm hover:text-amber-hover">
+                        閱讀全文 <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7.0 Contact & Consultation Section -->
+    <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-5 space-y-6">
+                <span class="text-xs uppercase tracking-widest text-amber-warm font-bold">Contact Natsumi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-dark leading-tight">開始規劃您的<br/>專屬安心旅程</h2>
+                <p class="text-slate-muted text-sm leading-relaxed">
+                    請填寫下方預約諮詢表單，或透過社群平台直接與我聯繫。我會在 24 小時之內回覆您！
+                </p>
+
+                <div class="space-y-4 pt-4 border-t border-cream-border">
+                    <div class="flex items-center space-x-3 text-slate-dark text-sm">
+                        <div class="w-10 h-10 rounded-full bg-amber-light text-amber-warm flex items-center justify-center">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-muted">電子郵件 Email</p>
+                            <p class="font-medium">natsumi.travel@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 text-slate-dark text-sm">
+                        <div class="w-10 h-10 rounded-full bg-amber-light text-amber-warm flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-muted">LINE 官方帳號</p>
+                            <p class="font-medium">@natsumi_travel</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 text-slate-dark text-sm">
+                        <div class="w-10 h-10 rounded-full bg-amber-light text-amber-warm flex items-center justify-center">
+                            <i data-lucide="building-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-muted">所屬機構</p>
+                            <p class="font-medium">自在遊旅行社 資深領隊</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="md:col-span-7 bg-cream-card p-8 rounded-2xl border border-cream-border shadow-sm">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-dark mb-1">您的姓名 *</label>
+                            <input type="text" required placeholder="例如：林先生 / 陳小姐" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-dark mb-1">聯絡電話 / LINE ID *</label>
+                            <input type="text" required placeholder="請輸入電話或LINE ID" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm"/>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-dark mb-1">諮詢項目 *</label>
+                            <select required class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm">
+                                <option value="">請選擇服務類型</option>
+                                <option value="group">團體旅遊諮詢 / 帶團規劃</option>
+                                <option value="fit">一對一自助旅遊代操</option>
+                                <option value="corporate">企業/商業考察團</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-dark mb-1">預計出發月份 / 天數</label>
+                            <input type="text" placeholder="例如：2026年7月 / 7天" class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm"/>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-dark mb-1">旅遊需求與想法描述 *</label>
+                        <textarea required rows="4" placeholder="請分享您的同行成員（例如：2大3小/長輩）、目的地偏好、預算或特殊需求..." class="w-full bg-cream border border-cream-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-warm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-amber-warm text-white font-medium hover:bg-amber-hover transition shadow-md">
+                        送出預約諮詢表單
+                    </button>
+                </form>
+
+                <!-- Success Alert (Hidden by default) -->
+                <div id="success-message" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-center text-sm">
+                    ✨ 感謝您的預約表單！Natsumi 已收到您的需求，將於 24 小時內與您聯繫。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-dark text-white py-12 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <div class="space-y-2 mb-4 sm:mb-0">
+                <span class="text-xl font-serif font-bold text-amber-warm block">Natsumi Travel Specialist</span>
+                <p class="text-xs text-slate-400">© 2026 Natsumi. All rights reserved. 自在遊旅行社資深領隊</p>
+            </div>
+            <div class="flex justify-center space-x-6 text-slate-400 text-xs">
+                <a href="#about" class="hover:text-white transition">關於我</a>
+                <a href="#services" class="hover:text-white transition">服務內容</a>
+                <a href="#blog" class="hover:text-white transition">專業部落格</a>
+                <a href="#contact" class="hover:text-white transition">聯絡諮詢</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Switch Footprint Tabs
+        function switchTab(tab) {
+            const btnJapan = document.getElementById('tab-japan');
+            const btnEurope = document.getElementById('tab-europe');
+            const contentJapan = document.getElementById('content-japan');
+            const contentEurope = document.getElementById('content-europe');
+
+            if (tab === 'japan') {
+                btnJapan.className = 'pb-2 text-sm font-medium border-b-2 border-amber-warm text-amber-warm transition';
+                btnEurope.className = 'pb-2 text-sm font-medium border-b-2 border-transparent text-slate-muted hover:text-slate-dark transition';
+                contentJapan.classList.remove('hidden');
+                contentEurope.classList.add('hidden');
+            } else {
+                btnEurope.className = 'pb-2 text-sm font-medium border-b-2 border-amber-warm text-amber-warm transition';
+                btnJapan.className = 'pb-2 text-sm font-medium border-b-2 border-transparent text-slate-muted hover:text-slate-dark transition';
+                contentEurope.classList.remove('hidden');
+                contentJapan.classList.add('hidden');
+            }
+        }
+
+        // Estimator dynamic update
+        const estRegion = document.getElementById('est-region');
+        const estDays = document.getElementById('est-days');
+        const estType = document.getElementById('est-type');
+        const estResult = document.getElementById('est-result');
+
+        function updateEstimator() {
+            const regionText = estRegion.options[estRegion.selectedIndex].text;
+            const daysText = estDays.options[estDays.selectedIndex].text;
+            const typeText = estType.options[estType.selectedIndex].text;
+            estResult.innerText = `適合：${regionText.split(' ')[0]} ${daysText} ${typeText}（包含詳細路線銜接與安心支援）`;
+        }
+
+        estRegion.addEventListener('change', updateEstimator);
+        estDays.addEventListener('change', updateEstimator);
+        estType.addEventListener('change', updateEstimator);
+
+        // Form Submit Simulation
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('success-message').classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>
